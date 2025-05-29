@@ -80,8 +80,11 @@ class MainHandler(tornado.web.RequestHandler):
                 )[0]
             )
 
+            from datetime import timedelta
             metric_name = predictor_model.metric.metric_name
-            prediction = predictor_model.predict_value(datetime.now())
+            prediction_horizon_minutes = int(os.getenv("FLT_PREDICTION_HORIZON_MINUTES", 30))
+            future_time = datetime.now() + timedelta(minutes=prediction_horizon_minutes)
+            prediction = predictor_model.predict_value(future_time)
 
             # Check for all the columns available in the prediction
             # and publish the values for each of them
