@@ -14,7 +14,7 @@ from prometheus_api_client import PrometheusConnect, Metric
 from configuration import Configuration
 import model
 import schedule
-
+from model_neuralprophet import NeuralProphetPredictor
 # Set up logging
 _LOGGER = logging.getLogger(__name__)
 
@@ -41,6 +41,12 @@ for metric in METRICS_LIST:
                 rolling_data_window_size=Configuration.rolling_training_window_size,
             )
         )
+        # PREDICTOR_MODEL_LIST.append(
+        #     NeuralProphetPredictor(
+        #     unique_metric,
+        #     rolling_data_window_size=Configuration.rolling_training_window_size,
+        #     )
+        #)
 
 # A gauge set for the predicted values
 GAUGE_DICT = dict()

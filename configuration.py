@@ -49,7 +49,7 @@ class Configuration:
 
     # How often should the anomaly detector retrain the model (in minutes)
     retraining_interval_minutes = int(
-        os.getenv("FLT_RETRAINING_INTERVAL_MINUTES", "120")
+        os.getenv("FLT_RETRAINING_INTERVAL_MINUTES", "60")
     )
     metric_chunk_size = parse_timedelta("now", str(retraining_interval_minutes) + "m")
 

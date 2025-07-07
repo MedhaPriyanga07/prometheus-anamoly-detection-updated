@@ -3,9 +3,12 @@ schedule
 prometheus_client
 prometheus_api_client
 tornado
-pystan==2.19.1.1
+cython
+numpy
 prophet
+neuralprophet
+cmdstanpy
 mlflow
 numpy
 scikit-learn
-tensorflow>=2.0,<2.5
+tensorflow-macos==2.11.0

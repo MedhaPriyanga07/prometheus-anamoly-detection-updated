@@ -22,7 +22,7 @@ class MetricPredictor:
         """Initialize the Metric object."""
         self.metric = Metric(metric, rolling_data_window_size)
 
-    def train(self, metric_data=None, prediction_duration=15):
+    def train(self, metric_data=None, prediction_duration=30):
         """Train the Prophet model and store the predictions in predicted_df."""
         prediction_freq = "1MIN"
         # convert incoming metric to Metric Object
